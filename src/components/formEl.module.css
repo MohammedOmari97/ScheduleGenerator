@@ -1,0 +1,5 @@
+.subjectsForm {
+    width: 50rem;
+    max-width: calc(100vw - 1rem);
+    margin: auto;
+}
