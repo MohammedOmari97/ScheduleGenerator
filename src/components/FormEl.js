@@ -5,6 +5,7 @@ import {
   defaultTheme,
   Provider,
   Button,
+  Flex,
 } from "@adobe/react-spectrum";
 import { subjectAdded, scheduleGenerated } from "../app/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,75 +34,72 @@ function FormEl() {
 
   return (
     <Provider theme={defaultTheme}>
-      <Form
-        className={styles.subjectsForm}
-        width="size-6000"
-        margin="auto"
-        styles={{ background: "#fff" }}
-        backgroundColor="#fff"
-      >
-        <TextField
-          label="Subject's name"
-          placeholder="Data structures"
-          onChange={setSubject}
-          value={subject}
-        />
-        <TextField
-          label="Subject's instructor"
-          placeholder="Mohamed Mekky"
-          onChange={setInstructor}
-          value={instructor}
-        />
-        <TextField
-          label="Subject's hours per week"
-          placeholder="3"
-          onChange={setHpw}
-          value={hpw}
-        />
-        <TextField
-          label="Subject's level"
-          placeholder="3"
-          onChange={setLevel}
-          value={level}
-        />
-        <Button
-          width="size-160"
-          variant="cta"
-          margin="auto"
-          marginTop="size-160"
-          onPress={() => {
-            dispatch(subjectAdded(subject, instructor, hpw, level));
-            setSubject("");
-            setInstructor("");
-            setHpw("");
-            setLevel("");
-          }}
-        >
-          Add
-        </Button>
-        <Button
-          variant="cta"
-          onPress={() => {
-            let subjectsArr = subjects.map((subject) => {
-              return new Subject(
-                subject.subjectName,
-                subject.subjectInstructor,
-                Number(subject.hoursPerWeek),
-                Number(subject.level)
-              );
-            });
-            let pop = new Population(subjectsArr, 5);
-            pop.result.subjects.map((subject) => {
-              subject.days = Array.from(subject.days);
-              return subject;
-            });
-            dispatch(scheduleGenerated(pop.result.subjects));
-            setRedirect(true);
-          }}
-        >
-          Generate Schedule
-        </Button>
-      </Form>
+      <Flex direction="column" margin="size-160">
+        <h2 className={styles.title}>Add Subjects</h2>
+        <Form className={styles.form} width="size-6000">
+          <TextField
+            label="Subject's name"
+            placeholder="Data structures"
+            onChange={setSubject}
+            value={subject}
+          />
+          <TextField
+            label="Subject's instructor"
+            placeholder="Mohamed Mekky"
+            onChange={setInstructor}
+            value={instructor}
+          />
+          <TextField
+            label="Subject's hours per week"
+            placeholder="3"
+            onChange={setHpw}
+            value={hpw}
+          />
+          <TextField
+            label="Subject's level"
+            placeholder="3"
+            onChange={setLevel}
+            value={level}
+          />
+          <Button
+            width="size-160"
+            variant="cta"
+            margin="auto"
+            marginTop="size-160"
+            onPress={() => {
+              dispatch(subjectAdded(subject, instructor, hpw, level));
+              // setSubject("");
+              // setInstructor("");
+              // setHpw("");
+              // setLevel("");
+            }}
+          >
+            Add
+          </Button>
+          <Button
+            variant="cta"
+            onPress={() => {
+              let subjectsArr = subjects.map((subject) => {
+                return new Subject(
+                  subject.subjectName,
+                  subject.subjectInstructor,
+                  Number(subject.hoursPerWeek),
+                  Number(subject.level)
+                );
+              });
+              let pop = new Population(subjectsArr, 5);
+              pop.result.subjects.map((subject) => {
+                subject.days = Array.from(subject.days);
+                return subject;
+              });
+              dispatch(scheduleGenerated(pop.result.subjects));
+              setRedirect(true);
+            }}
+          >
+            Generate Schedule
+          </Button>
+        </Form>
+      </Flex>
     </Provider>
   );
 }
