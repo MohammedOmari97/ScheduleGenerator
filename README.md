@@ -1,9 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Islamic University Schedule Generator
 
-## Available Scripts
+React application that generates a full schedule according to the Islamic University schedule specifications.
 
-In the project directory, you can run:
-
+<!--
 ### `yarn start`
 
 Runs the app in the development mode.<br />
@@ -65,4 +64,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
