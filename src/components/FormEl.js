@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./formEl.module.css";
 import { Subject, Population } from "../utils/generateSchedule";
 import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MAX_LOAD } from "./Schedule";
 
 function FormEl() {
@@ -177,6 +178,7 @@ function FormEl() {
             <Button
               variant="cta"
               onPress={() => {
+                console.log("pressed");
                 let subjectsArr = subjects.map((subject) => {
                   return new Subject(
                     subject.subjectName,
@@ -193,6 +195,11 @@ function FormEl() {
                 });
                 dispatch(scheduleGenerated(pop.result.subjects));
                 setRedirect(true);
+                // window.location.replace(
+                //   "https://timetable-generator.netlify.app/schedule"
+                // );
+                // window.location.href =
+                //   "https://timetable-generator.netlify.app/timetable";
               }}
               // isDisabled={subjects.length <= 3}
             >
