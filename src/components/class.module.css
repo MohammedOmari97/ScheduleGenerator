@@ -1,0 +1,23 @@
+.class {
+    background: #D6E4FF;
+    border: 1px solid rgba(37, 78, 219, .4);
+    border-radius: 10px;
+    /* width: 80%; */
+    width: calc(100% - 4px);
+    height: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 0px 10px; */
+    overflow: hidden;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.class:hover {
+    cursor: pointer;
+}

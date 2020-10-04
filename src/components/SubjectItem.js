@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextField, ActionButton } from "@adobe/react-spectrum";
 import { useDispatch } from "react-redux";
 import { subjectUpdated, subjectDeleted } from "../app/store";
-import { motion } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 import editIcon from "../images/edit.svg";
 import deleteIcon from "../images/delete.svg";
 import saveIcon from "../images/save.svg";
@@ -18,12 +18,16 @@ function SubjectItem({ subject }) {
   const [levelEdit, setLevelEdit] = useState(subject.level);
   const dispatch = useDispatch();
 
+  const [background, cycleBackground] = useCycle("#fafbfc", "#CFECFD");
+
   return (
     <motion.div
       className={styles.container}
       initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 0, background }}
       exit={{ opacity: 0, x: 10 }}
+      style={{ background }}
+      transition={{ ease: "linear" }}
     >
       <div className={styles.content}>
         <div className={styles.edit} hidden={!editMode}>
@@ -93,6 +97,10 @@ function SubjectItem({ subject }) {
                   levelEdit
                 )
               );
+              cycleBackground();
+              setTimeout(() => {
+                cycleBackground();
+              }, 350);
             }}
           >
             <img src={saveIcon} alt="save icon" />

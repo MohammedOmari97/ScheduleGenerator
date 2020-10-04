@@ -3,7 +3,7 @@ const times2 = [8, 9.5, 11, 12.5, 2, 3, 4];
 const days1 = ["sat", "mon", "wed"];
 const days2 = ["sun", "tue"];
 
-function generateTimes(hours) {
+export default function generateTimes(hours) {
   // for 1 hour
   if (hours === 1) {
     let randomPack = Math.round(Math.random());
@@ -11,12 +11,10 @@ function generateTimes(hours) {
       let randomDay = days1[Math.floor(Math.random() * days1.length)];
       let { startTime, endTime } = pickRandom1(hours);
       return { days: [randomDay], startTime, endTime };
-      // console.log(randomDay, startTime, endTime);
     } else if (randomPack === 1) {
       let randomDay = days2[Math.floor(Math.random() * days2.length)];
       let { startTime, endTime } = pickRandom2(hours);
       return { days: [randomDay], startTime, endTime };
-      // console.log(randomDay, startTime, endTime);
     }
   }
 
@@ -32,13 +30,11 @@ function generateTimes(hours) {
       }
       let { startTime, endTime } = pickRandom1(1);
       return { days: [random1day, random2day], startTime, endTime };
-      // console.log(random1day, random2day, startTime, endTime);
     } else if (randomPack === 1) {
       let day1 = days2[0];
       let day2 = days2[1];
       let { startTime, endTime } = pickRandom2(1);
       return { days: [day1, day2], startTime, endTime };
-      // console.log(day1, day2, startTime, endTime);
     }
   }
 
@@ -51,13 +47,11 @@ function generateTimes(hours) {
       let day3 = days1[2];
       let { startTime, endTime } = pickRandom1(1);
       return { days: [day1, day2, day3], startTime, endTime };
-      // console.log(day1, day2, day3, startTime, endTime);
     } else if (randomPack === 1) {
       let day1 = days2[0];
       let day2 = days2[1];
       let { startTime, endTime } = pickRandom2(3);
       return { days: [day1, day2], startTime, endTime };
-      // console.log(day1, day2, startTime, endTime);
     }
 
     // if (hours === 4) {
@@ -80,6 +74,22 @@ function generateTimes(hours) {
     //         }
     //     }
     // }
+  }
+
+  if (hours === 4) {
+    let days = [];
+    while (days.length < 2) {
+      let random = days1[Math.floor(Math.random() * days1.length)];
+      if (!days.includes(random)) {
+        days.push(random);
+      }
+    }
+
+    console.log(days);
+
+    let { startTime, endTime } = pickRandom1(2);
+
+    return { days, startTime, endTime };
   }
   /**
     if (hours === 4) {
@@ -104,7 +114,9 @@ function generateTimes(hours) {
             // here we will go four 2 hours lecture for 2 days in a week
 
         }
-    }  */
+    }
+    
+   */
 }
 
 // picks random start time from times1
@@ -130,5 +142,5 @@ const pickRandom2 = function (hours) {
   }
 };
 
-module.exports = { generateTimes };
+// module.exports = { generateTimes };
 // export default generateTimes;

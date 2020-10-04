@@ -1,4 +1,5 @@
-const { generateTimes } = require("./generateTimes");
+// const { generateTimes } = require("./generateTimes");
+import generateTimes from "./generateTimes";
 
 function deepClone(obj) {
   if (obj === null || typeof obj !== "object") return obj;
@@ -10,7 +11,7 @@ function deepClone(obj) {
 }
 
 export class Subject {
-  constructor(name, teacher, hpw, level) {
+  constructor(name, teacher, hpw, level, id) {
     this.name = name;
     this.teacher = teacher;
     this.hpw = hpw;
@@ -20,6 +21,7 @@ export class Subject {
     this.startTime = startTime;
     this.endTime = endTime;
     this.days = [...days];
+    this.id = id;
   }
 
   overlap(subject) {
@@ -169,6 +171,36 @@ export class Population {
     child.mutation();
     child.evaluate();
     return child;
+  }
+
+  add(subject) {
+    let result = deepClone(this.result);
+    let subjects = Array.from(result.subjects);
+    let levelSubjects = subjects.filter(
+      (_subject) => _subject.level === subject.level
+    );
+    let found = true;
+    // let isCollide = false;
+    // let i = 0;
+
+    while (true) {
+      // i++;
+      // console.log(i);
+      found = true;
+      for (let i = 0; i < levelSubjects.length; i++) {
+        if (levelSubjects[i].overlap(subject)) {
+          found = false;
+          break;
+        }
+      }
+      if (found) break;
+      let { days, startTime, endTime } = generateTimes(subject.hpw);
+      subject.days = [...days];
+      subject.startTime = startTime;
+      subject.endTime = endTime;
+    }
+
+    this.result.subjects.push(subject);
   }
 }
 

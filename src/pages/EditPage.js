@@ -1,17 +1,23 @@
 import React from "react";
 import FormEl from "../components/FormEl";
-import Navbar from "../components/Navbar";
 import SubjectsList from "../components/SubjectsList";
+import useWindowSize from "../utils/useWindowSize";
 
 import styles from "./editPage.module.css";
 import { Provider, defaultTheme, Flex } from "@adobe/react-spectrum";
+import { useEffect } from "react";
 
 function EditPage() {
+  const { width } = useWindowSize();
+
   return (
     <Provider theme={defaultTheme}>
       <div className={styles.container}>
         {/* <Navbar page="edit" /> */}
-        <Flex direction="row" justifyContent="space-between">
+        <Flex
+          direction={width < 1040 ? "column" : "row"}
+          justifyContent="center"
+        >
           <FormEl />
           <SubjectsList />
         </Flex>

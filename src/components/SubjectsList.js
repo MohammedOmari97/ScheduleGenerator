@@ -17,10 +17,10 @@ function SubjectsList() {
             <>
               <Flex
                 direction="column"
-                width="size-5000"
+                width="size-6000"
                 gap="size-160"
                 margin="auto"
-                // marginStart="size-130"
+                marginStart="size-160"
               >
                 <AnimatePresence>
                   {subjects.map((subject) => (
