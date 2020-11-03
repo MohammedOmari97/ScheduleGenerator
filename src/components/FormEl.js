@@ -16,7 +16,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./formEl.module.css";
 import { Subject, Population } from "../utils/generateSchedule";
 import { Redirect } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { MAX_LOAD } from "./Schedule";
 
 function FormEl() {

@@ -19,7 +19,7 @@ import AddSubjectDialog from "./AddSubjectDialog";
 import DeleteSubjectDialog from "./DeleteSubjectDialog";
 import InstructorsLoad from "./InstructorsLoad";
 
-export const MAX_LOAD = 8;
+export const MAX_LOAD = 20;
 
 function Schedule() {
   const [level, setLevel] = useState(new Set(["1"]));
