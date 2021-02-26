@@ -19,3 +19,11 @@ body {
 [hidden] {
   display: none !important;
 }
+
+._spectrum-Textfield_61339._is-valid_61339
+  ._spectrum-Textfield-validationIcon_61339 {
+  bottom: calc(
+    var(--spectrum-textfield-icon-frame) / 2 -
+      var(--spectrum-icon-checkmark-medium-height) / 2
+  ) !important;
+}

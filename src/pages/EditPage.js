@@ -2,9 +2,8 @@ import React from "react";
 import FormEl from "../components/FormEl";
 import SubjectsList from "../components/SubjectsList";
 import useWindowSize from "../utils/useWindowSize";
-
-import styles from "./editPage.module.css";
 import { Provider, defaultTheme, Flex } from "@adobe/react-spectrum";
+import styles from "./editPage.module.css";
 
 function EditPage() {
   const { width } = useWindowSize();
