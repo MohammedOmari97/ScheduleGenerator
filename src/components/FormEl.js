@@ -53,11 +53,13 @@ function FormEl() {
   return (
     <Provider theme={defaultTheme}>
       <div className={styles.container}>
-        <Flex direction="column" margin="size-160">
+        <Flex direction="column" margin="size-160" width="size-6000">
           <h2 className={styles.title}>Add Subjects</h2>
           <Form
             className={styles.form}
-            width="size-6000"
+            // maxWidth="size-6000"
+            // minWidth="size-6000"
+            // width="size-6000"
             onSubmit={(e) => {
               e.preventDefault();
               console.log("submitted");
@@ -131,7 +133,7 @@ function FormEl() {
               }}
               value={instructor}
             />
-            <Flex direction="row" justifyContent="space-between">
+            <Flex direction="row" justifyContent="space-between" wrap>
               <Picker
                 label="Subject's hours per week"
                 selectedKey={hpw}

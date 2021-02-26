@@ -96,7 +96,7 @@ function AddSubjectDialog({ levelLoad, disableAdd }) {
                     (validateInstructor ? "valid" : undefined)
                   }
                 />
-                <Flex direction="row" justifyContent="space-between">
+                <Flex direction="row" justifyContent="space-between" wrap>
                   <Picker
                     label="Subject's hours per week"
                     selectedKey={hpw}

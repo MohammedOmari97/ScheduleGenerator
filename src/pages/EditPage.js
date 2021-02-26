@@ -5,7 +5,6 @@ import useWindowSize from "../utils/useWindowSize";
 
 import styles from "./editPage.module.css";
 import { Provider, defaultTheme, Flex } from "@adobe/react-spectrum";
-import { useEffect } from "react";
 
 function EditPage() {
   const { width } = useWindowSize();
