@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Header } from "@adobe/react-spectrum";
+import { Header } from "@adobe/react-spectrum";
 import styles from "./navbar.module.css";
 
 function Navbar({ page }) {

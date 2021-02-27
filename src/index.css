@@ -19,13 +19,3 @@ body {
 [hidden] {
   display: none !important;
 }
-
-._spectrum-Textfield_61339._is-valid_61339
-  ._spectrum-Textfield-validationIcon_61339 {
-  bottom: 10px !important;
-}
-
-._spectrum-Textfield_61339._is-invalid_61339
-  ._spectrum-Textfield-validationIcon_61339 {
-  bottom: 8px !important;
-}
